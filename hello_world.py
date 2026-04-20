@@ -1,7 +1,7 @@
 from typing import TypedDict
 
 from langgraph.graph import StateGraph
-
+from IPython.display import Image, display
 class AgentState(TypedDict):
 	message: str
 
@@ -20,3 +20,7 @@ graph.set_entry_point("greeter")
 graph.set_finish_point("greeter")
 
 app = graph.compile()
+
+result = app.invoke({"message": "Bob"})
+
+print(result["message"])
